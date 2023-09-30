@@ -34,3 +34,35 @@ body {
 .button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+.jogo-da-memoria {
+  padding: 1rem;
+}
+
+.jogo-da-memoria__conteudo {
+  max-width: 600px;
+  margin: 0 auto;
+} 
+
+.jogo-da-memoria__cartas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.placar {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pontos {
+  padding: 1rem 0;
+}
+
+.carta {
+  background-color: white;
+  width: 100%;
+  aspect-ratio: 3/4;
+}

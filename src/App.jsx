@@ -1,6 +1,10 @@
+import MemoryGame from "./components/MemoryGame"
+
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <MemoryGame />
+    </div>
   )
 }
 
