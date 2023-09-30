@@ -27,9 +27,11 @@ body {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 .button:hover {
   border-color: #646cff;
 }
+
 .button:focus,
 .button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -42,7 +44,7 @@ body {
 .jogo-da-memoria__conteudo {
   max-width: 600px;
   margin: 0 auto;
-} 
+}
 
 .jogo-da-memoria__cartas {
   display: grid;
@@ -62,7 +64,52 @@ body {
 }
 
 .carta {
-  background-color: white;
   width: 100%;
   aspect-ratio: 3/4;
+  perspective: 400px;
+
+  /* Button */
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.carta img {
+  max-width: 100%;
+}
+
+.carta__conteudo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.carta__frente,
+.carta__costas {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  backface-visibility: hidden;
+  --webkit-backface-visibility: hidden
+}
+
+.carta__frente {
+  background-color: #bbb;
+}
+
+.carta__costas {
+  transform: rotateY(180deg);
+}
+
+.carta:hover .carta__conteudo {
+  transform: rotateY(180deg);
 }
