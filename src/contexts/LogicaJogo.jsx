@@ -13,13 +13,15 @@ export const LogicaJogoProvider = ({ children }) => {
 
     const virarCarta = ({ id, idDoPar }) => {
         incrementarCartas()
+        setIdsCartasViradas((ids) => [...ids, id])
     }
 
     const valor = {
         cartas,
         qtdCartasViradas,
         qtdPontos,
-        virarCarta
+        virarCarta,
+        idsCartasViradas
     }
 
     return (

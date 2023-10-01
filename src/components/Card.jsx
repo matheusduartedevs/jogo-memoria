@@ -1,14 +1,21 @@
+import classNames from "classnames"
 import useJogoMemoria from "../hooks/useJogoMemoria"
 
 const Card = ({ id, idDoPar, imagem }) => {
-    const { virarCarta } = useJogoMemoria()
+    const { virarCarta, idsCartasViradas } = useJogoMemoria()
     
     const handleClick = () => {
         virarCarta({ id, idDoPar })
     }
 
+    const cartaVirada = idsCartasViradas.includes(id)
+
+    const cn = classNames("carta", {
+        "carta--virada": cartaVirada,
+    })
+
     return (
-        <button id={id} className="carta" onClick={handleClick}>
+        <button id={id} className={cn} onClick={handleClick}>
             <div className="carta__conteudo">
                 <div className="carta__frente"></div>
                 <div className="costas">
