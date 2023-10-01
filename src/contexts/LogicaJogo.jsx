@@ -1,10 +1,25 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-const LogicaJogoContext = createContext()
+export const LogicaJogoContext = createContext()
 
 export const LogicaJogoProvider = ({ children }) => {
-    const valor = {
+    const [cartas, setCartas] = useState([])
+    const [idsPares, setIdsPares] = useState([])
+    const [idsCartasViradas, setIdsCartasViradas] = useState([])
+    const [qtdCartasViradas, setQtdCartasViradas] = useState(0)
+    const [qtdPontos, setQtdPontos] = useState(0)
 
+    const incrementarCartas = () => setQtdCartasViradas((quantidade) => quantidade + 1)
+
+    const virarCarta = ({ id, idDoPar }) => {
+        incrementarCartas()
+    }
+
+    const valor = {
+        cartas,
+        qtdCartasViradas,
+        qtdPontos,
+        virarCarta
     }
 
     return (
