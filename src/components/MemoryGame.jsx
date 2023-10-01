@@ -1,5 +1,6 @@
-import { paresDeCarta } from "../constants/cards"
+import { useEffect } from "react"
 import { LogicaJogoProvider } from "../contexts/LogicaJogo"
+import useJogoMemoria from "../hooks/useJogoMemoria"
 import Card from "./Card"
 import Resultado from "./Resultado"
 import Score from "./Score"
@@ -13,6 +14,12 @@ const MemoryGame = () => {
 }
 
 export const MemoryGameConteudo = () => {
+    const { cartas, iniciarJogo } = useJogoMemoria()
+
+    useEffect(() => {
+      iniciarJogo()
+    }, [])
+    
     return (
         <div className='jogo-da-memoria'>
             <div className="jogo-da-memoria__conteudo">
